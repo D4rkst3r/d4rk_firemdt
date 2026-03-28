@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feuerwehr MDT</title>
+
+    <!-- Google Fonts: Rajdhani (Taktische Überschriften) + Share Tech Mono (IDs / Timestamps) -->
+    <!-- Beide Fonts passen zum "Rugged Tactical Tablet"-Stil -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <body style="background: transparent !important;"></body>
+    <!-- Vue mountet sich in dieses div (siehe main.ts: app.mount('#app')) -->
+    <div id="app"></div>
+    <!-- Vite bündelt main.ts → main.js und injiziert es hier automatisch beim Build -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

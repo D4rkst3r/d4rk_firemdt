@@ -3,22 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Feuerwehr MDT</title>
-
-    <!-- Google Fonts: Rajdhani (Taktische Überschriften) + Share Tech Mono (IDs / Timestamps) -->
-    <!-- Beide Fonts passen zum "Rugged Tactical Tablet"-Stil -->
+    <title>Fire Department MDT</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
       rel="stylesheet"
     />
+    <style>
+  html, body,
+  #app,
+  .v-application,
+  .v-application__wrap,
+  .v-layout,
+  .v-main {
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+  .v-application__wrap {
+    min-height: 0 !important;
+  }
+</style>
   </head>
   <body>
-    <body style="background: transparent !important;"></body>
-    <!-- Vue mountet sich in dieses div (siehe main.ts: app.mount('#app')) -->
-    <div id="app"></div>
-    <!-- Vite bündelt main.ts → main.js und injiziert es hier automatisch beim Build -->
+    <!--
+      x-cfx-game-view: FiveM-eigenes HTML-Element das die GTA-Spielwelt als
+      Hintergrund rendert. Seit dem Chromium-Update in FiveM ist CSS "transparent"
+      hinter NUI-Elementen einfach schwarz — x-cfx-game-view ist der offizielle Fix.
+      Muss VOR #app stehen damit es im z-index dahinter liegt.
+      Quelle: https://forum.cfx.re/t/seems-like-a-new-update-in-nui-caused-a-bug/1420990
+    -->
+<x-cfx-game-view style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:0;"></x-cfx-game-view>
+<div id="app" style="position:relative;z-index:1;"></div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

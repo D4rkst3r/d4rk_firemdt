@@ -13,6 +13,7 @@ import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 // Vuetify base styles
 import 'vuetify/styles'
+import '@/styles/nui-override.css'  // ← NEU: überschreibt Vuetify im Bundle
 
 // -------------------------------------------------------
 // Farb-Definitionen
@@ -57,13 +58,16 @@ export default createVuetify({
   theme: {
     // Standardmäßig das dark-tactical Theme nutzen
     defaultTheme: 'darkTactical',
+    cspNonce: undefined,
+    // Verhindert dass Vuetify background-color auf <html>/<body> setzt
+    variations: false,
     themes: {
       darkTactical: {
         dark: true,  // Vuetify weiß: dunkle Variante aller Komponenten nutzen
 
         colors: {
           // Pflichtfelder die Vuetify für seine internen Berechnungen braucht:
-          background: colors.bgBase,
+          background: colors.bgDeep,  // transparent: sonst füllt Vuetify den ganzen Screen auch wenn MDT geschlossen ist
           surface:    colors.bgSurface,
 
           // 'primary' wird von Vuetify für Buttons, Chips, Links etc. als Default genutzt

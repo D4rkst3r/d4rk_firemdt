@@ -9,7 +9,7 @@
  * angezeigt wird — DeviceGrid.vue oder die kompakte Alarm-Log-Ansicht.
  */
 
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { useMdtStore } from '@/stores/mdt'
 
 const store = useMdtStore()
@@ -18,8 +18,6 @@ const store = useMdtStore()
 // ref() erstellt eine reaktive Variable.
 // Wenn activeTab sich ändert → Tab-Inhalt re-rendert sich.
 // '0' und '1' sind die Tab-Indices (Vuetify v-tabs verwendet numerische oder String-Keys)
-const activeTab = ref<number>(0)
-
 // computed() — abgeleiteter Wert: Ist der QUITTIEREN-Button aktiv?
 // Abhängig von store.selectedSystem.status → reagiert auf Live-Updates
 const canQuittieren = computed<boolean>(() =>
@@ -92,12 +90,12 @@ const statusConfig = computed(() => {
 
     <!-- Tab-Navigation -->
     <!--
-      v-model="activeTab": Two-Way-Binding zwischen Tab-Komponente und activeTab-ref.
+      v-model="store.activeTab": Two-Way-Binding zwischen Tab-Komponente und activeTab-ref.
       Wenn der Nutzer Tab 2 klickt → activeTab.value = 1 → computed-Werte reagieren.
       v-model ist syntaktischer Zucker für :modelValue + @update:modelValue.
     -->
     <v-tabs
-      v-model="activeTab"
+      v-model="store.activeTab"
       density="compact"
       class="detail-tabs"
       color="primary"

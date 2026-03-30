@@ -52,6 +52,9 @@ export const useMdtStore = defineStore('mdt', () => {
   /** Läuft gerade ein Refresh? → Spinner anzeigen */
   const isLoading = ref(false)
 
+  /** Aktiver Tab in SystemDetail: 0 = Geraete, 1 = Alarm-Log */
+  const activeTab = ref<number>(0)
+
   // =====================================================
   // GETTERS — berechnete Ableitungen (computed)
   //
@@ -229,6 +232,7 @@ export const useMdtStore = defineStore('mdt', () => {
     isOpen,
     isAdmin,
     isLoading,
+    activeTab,
     // Getters
     selectedSystem,
     sortedSystems,

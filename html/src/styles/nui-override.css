@@ -1,0 +1,21 @@
+:root {
+  color-scheme: unset !important;
+}
+
+html {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+html, body, #app,
+.v-application,
+.v-application__wrap,
+.v-layout,
+.v-main,
+[class*="v-theme--"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+.v-application__wrap {
+  min-height: 0 !important;
+}
